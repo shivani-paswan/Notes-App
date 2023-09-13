@@ -1,4 +1,4 @@
-package com.example.notesapp
+package com.example.notesapp.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import com.example.notesapp.databinding.FragmentLoginBinding
-import com.example.notesapp.model.UserRequest
+import com.example.notesapp.AuthViewModel
+import com.example.notesapp.R
 import com.example.notesapp.utiles.NetworkResult
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,24 +33,24 @@ class LoginFragment : Fragment() {
         login_btn.setOnClickListener(){
 //            viewModel.loginUser(UserRequest("ADMIN@JEENA","CRITICARE@123","0.0.1","06-02-2023","06-02-2023",""))
 
-//            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+            findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
         }
         return view
 
         // Inflate the layout for this fragment
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewModel.userResponseLiveData.observe(viewLifecycleOwner, Observer {
-            when(it){
-             is NetworkResult.Success->{
-                 // token
-                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
-             }
-                is NetworkResult.Error->{}
-                is NetworkResult.Loading -> {}
-            }
-        })
-    }
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//        viewModel.userResponseLiveData.observe(viewLifecycleOwner, Observer {
+//            when(it){
+//             is NetworkResult.Success->{
+//                 // token
+//                 findNavController().navigate(R.id.action_loginFragment_to_mainFragment)
+//             }
+//                is NetworkResult.Error->{}
+//                is NetworkResult.Loading -> {}
+//            }
+//        })
+//    }
 }
