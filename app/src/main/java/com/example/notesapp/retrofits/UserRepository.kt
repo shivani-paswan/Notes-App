@@ -32,7 +32,7 @@ class UserRepository @Inject constructor(private val userApi: UserApi) {
         }else if( response.errorBody() != null){
 //            val errorObj=JSONObject(response.errorBody()!!.charStream().readText())
 //            _userResponseLiveData.postValue(NetworkResult.Error(errorObj.getString("message")))
-//            _userResponseLiveData.postValue(NetworkResult.Error("something went wrong"))
+            _userResponseLiveData.postValue(NetworkResult.Error("something went wrong"))
         }else{
             _userResponseLiveData.postValue(NetworkResult.Error("something went wrong"))
 

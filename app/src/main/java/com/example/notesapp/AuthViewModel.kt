@@ -1,5 +1,6 @@
 package com.example.notesapp
 
+import android.annotation.SuppressLint
 import android.text.TextUtils
 import android.util.Patterns
 import androidx.lifecycle.LiveData
@@ -13,7 +14,6 @@ import com.example.notesapp.retrofits.UserRepository
 import com.example.notesapp.utiles.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.util.regex.Pattern
 import javax.inject.Inject
 
 @HiltViewModel
@@ -37,17 +37,20 @@ class AuthViewModel @Inject constructor(private  val userRepository: UserReposit
 
      }
 
-     fun  validateCredential(username:String,emailAddress:String,pasword:String):Pair<Boolean,String>{
+     @SuppressLint("SuspiciousIndentation")
+     fun  validateCredential(emailAddress: String, password:String):Pair<Boolean,String>{
          var result =Pair(true,"")
-             if(TextUtils.isEmpty(username)||TextUtils.isEmpty(emailAddress)||TextUtils.isEmpty(pasword)){
-                 result=Pair(false,"please provide data")
-             } else if( Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()){
-                 result=Pair(false,"please provide valid  data")
-             }
-         else if (pasword.length <= 10){
-                 result=Pair(false,"incorrect password")
+             if(TextUtils.isEmpty(emailAddress)||TextUtils.isEmpty(password)){
 
+                 result=Pair(false,"please provide data")
              }
+//             else if( Patterns.EMAIL_ADDRESS.matcher(emailAddress).matches()){
+////                 result=Pair(false,"please provide valid  data")
+//             }
+//         else if (password.length <= 10){
+//                 result=Pair(false,"incorrect password")
+//
+//             }
          return  result
      }
 
