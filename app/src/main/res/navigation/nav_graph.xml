@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/noteFragment"
-        android:name="com.example.notesapp.fragment.NoteFragment"
+        android:name="com.example.notesapp.fragment.notesFragment.NoteFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_note" />
 </navigation>

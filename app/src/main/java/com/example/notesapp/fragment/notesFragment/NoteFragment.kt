@@ -1,4 +1,4 @@
-package com.example.notesapp.fragment
+package com.example.notesapp.fragment.notesFragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
