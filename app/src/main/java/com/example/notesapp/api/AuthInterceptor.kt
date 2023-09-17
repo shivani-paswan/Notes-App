@@ -13,7 +13,7 @@ class AuthInterceptor @Inject constructor():Interceptor {
         val  request=chain.request().newBuilder()
 
         val token =tokenManager.getToken()
-        request.addHeader("Authorization","Beaerer $token")
+        request.addHeader("Authorization","token $token")
         return  chain.proceed(request.build())
     }
 }
